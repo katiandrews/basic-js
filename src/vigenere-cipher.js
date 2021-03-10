@@ -15,8 +15,8 @@ class VigenereCipheringMachine {
     
     for (i = 0; i < message.length; i++) {
       if (message.charCodeAt(i) >= 65 && message.charCodeAt(i) <= 90) { //letter A-Z
-        let letterCode = message.charCodeAt(i); 
-        let keyLetterCode = key.charCodeAt(currentKeyIndex); 
+        let letterCode = message.charCodeAt(i) - 65; //number 0-25
+        let keyLetterCode = key.charCodeAt(currentKeyIndex) - 65; //number 0-25
         encrypted += String.fromCharCode((letterCode + keyLetterCode) % 26 + 65);
         currentKeyIndex = (currentKeyIndex + 1) % key.length; //if message[i] is a letter, than we shift keyIndex to next key symbol;
       } else {
